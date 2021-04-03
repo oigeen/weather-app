@@ -22,18 +22,22 @@
       <v-divider />
       <WeatherChart :weather="weather" class="mt-4" />
     </v-card>
-    <ShareButton class="mt-4" />
+    <v-row align="bottom" justify="end">
+      <FaceBookShareButton class="mt-6" />
+      <TwitterShareButton class="mt-6 ml-2" target="_blank" />
+    </v-row>
   </v-container>
 </template>
 
 <script>
 import axios from "axios";
 import WeatherChart from "./WeatherChart";
-import ShareButton from "./ShareButton";
+import FaceBookShareButton from "./FaceBookShareButton";
+import TwitterShareButton from "./TwitterShareButton";
 
 export default {
   name: "Home",
-  components: { WeatherChart, ShareButton },
+  components: { WeatherChart, FaceBookShareButton, TwitterShareButton },
   data: () => ({
     location: {
       city: "Melbourne",
