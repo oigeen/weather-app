@@ -26,7 +26,7 @@ export default {
             data: [
               {
                 x: 32,
-                y: 45,
+                y: 0,
                 r: 34,
               },
             ],
@@ -61,8 +61,8 @@ export default {
             borderColor: "rgba(123,13,112,1)",
             data: [
               {
-                x: 18,
-                y: 40,
+                x: 30,
+                y: 100,
                 r: 34,
               },
             ],
@@ -88,6 +88,10 @@ export default {
             "Relationship between Humidity, Windspeed and Temperature in Melbourne. Bubble radius represents temperature in degrees Celcius",
         },
         scales: {
+          y: {
+            min: 0,
+            max: 100,
+          },
           yAxes: [
             {
               scaleLabel: {
