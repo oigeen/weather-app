@@ -56,12 +56,11 @@ export default {
   },
   mounted: async function () {
     await axios
-      .get("https://api.airvisual.com/v2/city", {
+      .get("https://weather-api-relay.herokuapp.com", {
         params: {
           city: this.location.city,
           country: this.location.country,
           state: this.location.state,
-          key: process.env.VUE_APP_API_KEY,
         },
       })
       .then((response) => {
