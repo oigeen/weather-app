@@ -1,8 +1,13 @@
 <template>
   <v-container>
-    {{ weather.temp }}
-    {{ weather.humidity }}
-    {{ weather.wind }}
+    <h1>Current Melbourne Weather</h1>
+    <h2>{{ currentDate }}</h2>
+    <v-card>
+      {{ weather.temp }}
+      {{ weather.humidity }}
+      {{ weather.wind }}
+      <v-img :src="iconString" height="100" width="100" />
+    </v-card>
   </v-container>
 </template>
 
@@ -10,7 +15,7 @@
 import axios from "axios";
 
 export default {
-  name: "HelloWorld",
+  name: "Home",
 
   data: () => ({
     location: {
@@ -20,14 +25,23 @@ export default {
     },
     weather: {},
   }),
-  created: async function () {
+  computed: {
+    currentDate: function () {
+      let dateNow = new Date();
+      return dateNow.toLocaleDateString() + " " + dateNow.toLocaleTimeString();
+    },
+    iconString: function () {
+      return `https://airvisual.com/images/${this.weather.icon}.png`;
+    },
+  },
+  mounted: async function () {
     await axios
       .get("http://api.airvisual.com/v2/city", {
         params: {
           city: this.location.city,
           country: this.location.country,
           state: this.location.state,
-          key: "b0b51d2a-e06d-44dd-85ed-f6181741d879",
+          key: process.env.VUE_APP_API_KEY,
         },
       })
       .then((response) => {
@@ -36,6 +50,7 @@ export default {
           temp: weather.tp,
           humidity: weather.hu,
           wind: weather.ws,
+          icon: weather.ic,
         };
       })
       .catch((error) => {
