@@ -1,7 +1,7 @@
 <template>
   <v-btn
     target="_blank"
-    href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A8080%2F&amp;src=sdkpreparse"
+    href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Felastic-swartz-43757a.netlify.app%2F&amp;src=sdkpreparse"
     class="fb-xfbml-parse-ignore"
     >Share</v-btn
   >

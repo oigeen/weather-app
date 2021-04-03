@@ -23,7 +23,7 @@
       <WeatherChart :weather="weather" class="mt-4" />
     </v-card>
     <v-row align="bottom" justify="end">
-      <FaceBookShareButton class="mt-6" />
+      <FaceBookShareButton class="mt-6" target="_blank" />
       <TwitterShareButton class="mt-6 ml-2" target="_blank" />
     </v-row>
   </v-container>

@@ -1,5 +1,9 @@
 <template>
-  <v-btn medium href="https://twitter.com/share?url=google.com">Tweet</v-btn>
+  <v-btn
+    medium
+    href="https://twitter.com/share?url=https://elastic-swartz-43757a.netlify.app"
+    >Tweet</v-btn
+  >
 </template>
 
 <script>
