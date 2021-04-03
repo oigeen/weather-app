@@ -1,22 +1,37 @@
 <template>
   <v-container>
-    <h1>Current Melbourne Weather</h1>
-    <h2>{{ currentDate }}</h2>
-    <v-card>
-      {{ weather.temp }}
-      {{ weather.humidity }}
-      {{ weather.wind }}
-      <v-img :src="iconString" height="100" width="100" />
+    <h1 class="mt-3">Melbourne Weather</h1>
+    <v-card class="mt-12">
+      <v-card-title>
+        <h2>Today: {{ currentDate }}</h2>
+      </v-card-title>
+      <v-container class="pa-6">
+        <v-row>
+          <v-col cols="2">
+            <v-img :src="iconString" height="100" width="100" />
+          </v-col>
+          <v-col>
+            <ul>
+              <li>Temp: {{ weather.temp }} C</li>
+              <li>Humidity: {{ weather.humidity }}%</li>
+              <li>Wind Speed: {{ weather.wind }} km/h</li>
+            </ul>
+          </v-col>
+        </v-row>
+      </v-container>
+
+      <WeatherChart :weather="weather" />
     </v-card>
   </v-container>
 </template>
 
 <script>
 import axios from "axios";
+import WeatherChart from "./WeatherChart";
 
 export default {
   name: "Home",
-
+  components: { WeatherChart },
   data: () => ({
     location: {
       city: "Melbourne",
