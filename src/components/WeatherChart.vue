@@ -20,18 +20,6 @@ export default {
       data: {
         datasets: [
           {
-            label: ["Today"],
-            backgroundColor: "rgba(255,221,50,0.2)",
-            borderColor: "rgba(255,221,50,1)",
-            data: [
-              {
-                x: this.weather.wind,
-                y: this.weather.humidity,
-                r: this.weather.temp,
-              },
-            ],
-          },
-          {
             label: ["30/3/21"],
             backgroundColor: "rgba(60,186,159,0.2)",
             borderColor: "rgba(60,186,159,1)",
@@ -76,6 +64,18 @@ export default {
                 x: 18,
                 y: 40,
                 r: 34,
+              },
+            ],
+          },
+          {
+            label: ["Today"],
+            backgroundColor: "rgba(255,221,50,0.2)",
+            borderColor: "rgba(255,221,50,1)",
+            data: [
+              {
+                x: this.weather.wind,
+                y: this.weather.humidity,
+                r: this.weather.temp,
               },
             ],
           },
