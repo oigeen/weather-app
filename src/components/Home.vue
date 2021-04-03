@@ -1,13 +1,13 @@
 <template>
   <v-container>
     <h1 class="mt-3">Melbourne Weather</h1>
-    <v-card class="mt-12">
+    <v-card class="mt-12 pa-6">
       <v-card-title>
-        <h2>Today: {{ currentDate }}</h2>
+        <h3>Today: {{ currentDate }}</h3>
       </v-card-title>
       <v-container class="pa-6">
         <v-row>
-          <v-col cols="2">
+          <v-col offset="1" cols="2">
             <v-img :src="iconString" height="100" width="100" />
           </v-col>
           <v-col>
@@ -19,19 +19,21 @@
           </v-col>
         </v-row>
       </v-container>
-
-      <WeatherChart :weather="weather" />
+      <v-divider />
+      <WeatherChart :weather="weather" class="mt-4" />
     </v-card>
+    <ShareButton class="mt-4" />
   </v-container>
 </template>
 
 <script>
 import axios from "axios";
 import WeatherChart from "./WeatherChart";
+import ShareButton from "./ShareButton";
 
 export default {
   name: "Home",
-  components: { WeatherChart },
+  components: { WeatherChart, ShareButton },
   data: () => ({
     location: {
       city: "Melbourne",
