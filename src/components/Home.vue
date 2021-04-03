@@ -56,7 +56,7 @@ export default {
   },
   mounted: async function () {
     await axios
-      .get("http://api.airvisual.com/v2/city", {
+      .get("https://api.airvisual.com/v2/city", {
         params: {
           city: this.location.city,
           country: this.location.country,
