@@ -1,6 +1,5 @@
 <template>
-  <v-container>
-    <h1 class="mt-3">Melbourne Weather</h1>
+  <v-container class="mb-6">
     <v-card class="mt-12 pa-6">
       <v-card-title>
         <h3>Today: {{ currentDate }}</h3>
