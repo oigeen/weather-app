@@ -64,13 +64,15 @@ export default {
         },
       })
       .then((response) => {
-        let weather = response.data.data.current.weather;
-        this.weather = {
-          temp: weather.tp,
-          humidity: weather.hu,
-          wind: weather.ws,
-          icon: weather.ic,
-        };
+        if (response.success == true) {
+          let weather = response.results.data.current.weather;
+          this.weather = {
+            temp: weather.tp,
+            humidity: weather.hu,
+            wind: weather.ws,
+            icon: weather.ic,
+          };
+        }
       })
       .catch((error) => {
         console.log(error);
