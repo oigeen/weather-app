@@ -21,7 +21,7 @@
       <v-divider />
       <WeatherChart :weather="weather" class="mt-4" />
     </v-card>
-    <v-row align="bottom" justify="end">
+    <v-row justify="end">
       <FaceBookShareButton class="mt-6" target="_blank" />
       <TwitterShareButton class="mt-6 ml-2" target="_blank" />
     </v-row>
@@ -54,7 +54,7 @@ export default {
       return `https://airvisual.com/images/${this.weather.icon}.png`;
     },
   },
-  mounted: async function () {
+  created: async function () {
     await axios
       .get("https://weather-api-relay.herokuapp.com", {
         params: {
@@ -64,8 +64,9 @@ export default {
         },
       })
       .then((response) => {
-        if (response.success == true) {
-          let weather = response.results.data.current.weather;
+        if (response.status == 200) {
+          let weather = response.data.results.data.current.weather;
+          console.log(weather);
           this.weather = {
             temp: weather.tp,
             humidity: weather.hu,
